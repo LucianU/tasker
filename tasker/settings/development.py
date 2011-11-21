@@ -1,5 +1,10 @@
 from tasker.settings.common import *
 
 INSTALLED_APPS += (
-    'django_debug_toolbar',
+    'debug_toolbar',
 )
+
+try:
+    from tasker.settings.local import *
+except ImportError:
+    pass
