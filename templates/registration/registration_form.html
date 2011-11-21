@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+    <h2>Sign Up</h2>
+    <form id="signup" method="post" action="{% url 'registration_register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+
+<p>Already have an account? <a href="{% url 'django.contrib.auth.views.login' %}">Login</a></p>
+{% endblock %}

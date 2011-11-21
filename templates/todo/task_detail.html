@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+<p><a href="{% url 'todo:list' %}">Tasks</a></p>
+
+<h2>{{ object.title }}</h2><a href="{% url 'todo:edit' object.pk %}">Edit</a>
+<p>Description: {{ object.description }}</p>
+<p>Priority: {{ object.get_priority_display|title }}</p>
+
+{% if object.deadline %}
+    <p>Deadline: {{ object.deadline|date:"d M Y H:i:s" }}</p>
+{% endif %}
+
+{% if object.completed == 0 %}
+    <p>Not completed</p>
+{% else %}
+    <p>Completed</p>
+{% endif %}
+
+{% endblock %}

@@ -1,21 +1,35 @@
 {% extends "base.html" %}
+{% load url from future %}
+
 {% block content %}
-  <table>
+
+<p><a href="{% url 'todo:create' %}">Add task</a></p>
+
+<h2>Tasks</h2>
+<p>
+   <a href="{% url 'todo:list' %}?completed=0">Active</a><span>|</span>
+   <a href="{% url 'todo:list' %}?completed=1">Completed</a> <span>|</span>
+   <a href="{% url 'todo:list' %}">All</a>
+</p>
+
+<table>
     <thead>
-      <tr>
+        <tr>
         <th>Title</th>
         <th>Priority</th>
         <th>Deadline</th>
-      </tr>
+        <th>Completed</th>
+        </tr>
     </thead>
     <tbody>
-      {% for task in task_list %}
-      <tr>
-        <td><a href="{{ task.get_absolute_url }}">{{ task.title }}</a></td>
-        <td>{{ task.get_priority_display }}</td>
-        <td>{{ task.deadline }}</td>
-      </tr>
-      {% endfor %}
+        {% for task in task_list %}
+            <tr>
+                <td><a href="{{ task.get_absolute_url }}">{{ task.title }}</a></td>
+                <td>{{ task.get_priority_display }}</td>
+                <td>{{ task.deadline }}</td>
+                <td>{{ task.completed|yesno:"Yes,No,Maybe" }}</td>
+            </tr>
+        {% endfor %}
     </tbody>
-  </table>
+</table>
 {% endblock %}
