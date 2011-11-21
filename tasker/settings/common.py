@@ -122,10 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'tastypie',
+    'registration',
+    'todo',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -150,3 +149,6 @@ LOGGING = {
         },
     }
 }
+
+# django-registration setting
+ACCOUNT_ACTIVATION_DAYS = 7
