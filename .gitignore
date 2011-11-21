@@ -1,3 +1,4 @@
 *.pyc
 *.pyo
 env
+tasker/settings/local.py
