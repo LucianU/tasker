@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+<p>You're account has been activated. You can <a href="{% url 'django.contrib.auth.views.login' %}">log in</a>.</p>
+{% endblock %}
