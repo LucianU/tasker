@@ -1,13 +1,18 @@
 from django.conf.urls.defaults import url, patterns
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView
 
-from todo.models import Task
+from todo.views import (TaskListView, TaskCreateView, TaskDetailView,
+                        TaskUpdateView)
 
-urlpatterns = patterns('todo.views',
-    url(r'^$', login_required(ListView.as_view(model=Task)), name='list'),
-    url(r'^create/$', 'TaskCreateView', name='create'),
-    url(r'^detail/(?P<identifier>\d+)/$', 'TaskDetailView', name='detail'),
-    url(r'^edit/(?P<identifier>\d+)/$', 'TaskEditView', name='edit'),
-    url(r'^close/(?P<identifier>\d+)/$', 'TaskCloseView', name='close'),
+urlpatterns = patterns('',
+    url(r'^$', login_required(TaskListView.as_view()), name='list'),
+    url(r'^create/$',
+        login_required(TaskCreateView.as_view()),
+        name='create'),
+    url(r'^detail/(?P<pk>\d+)/$',
+        login_required(TaskDetailView.as_view()),
+        name='detail'),
+    url(r'^edit/(?P<pk>\d+)/$',
+        login_required(TaskUpdateView.as_view()),
+        name='edit'),
 )
