@@ -2,6 +2,7 @@ from django import forms
 
 from todo.models import Task
 
-class TaskForm(forms.ModelForms):
+class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
+        exclude = ('user',)
