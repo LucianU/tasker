@@ -16,6 +16,9 @@ class Task(models.Model):
     completed = models.BooleanField(default=False)
     user = models.ForeignKey(User, related_name='tasks')
 
+    class Meta:
+        ordering = ['-priority', '-deadline']
+
     def __unicode__(self):
         return u"<%s:%s>" % (self.title, self.get_priority_display())
 
