@@ -1,3 +1,4 @@
+{% load url from future %}
 Click on the following link to activate your account at {{ site.name }}:
 
 {% url 'registration_activate' activation_key %}
