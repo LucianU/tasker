@@ -150,5 +150,7 @@ LOGGING = {
     }
 }
 
+LOGIN_REDIRECT_URL = '/'
+
 # django-registration setting
 ACCOUNT_ACTIVATION_DAYS = 7
