@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Task(models.Model):
     PRIORITY_CHOICES = (
@@ -9,10 +10,11 @@ class Task(models.Model):
     )
 
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    description = models.TextField()
     priority = models.PositiveSmallIntegerField(choices=PRIORITY_CHOICES)
     deadline = models.DateTimeField(null=True, blank=True)
     completed = models.BooleanField(default=False)
+    user = models.ForeignKey(User, related_name='tasks')
 
     def __unicode__(self):
         return u"<%s:%s>" % (self.title, self.get_priority_display())
