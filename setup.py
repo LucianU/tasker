@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
-setup(name='myproject',
+setup(name='tasker',
       version='0.1',
       packages=find_packages(),
-      package_data={'myproject': ['bin/*.*', 'static/*.*', 'templates/*.*']},
-      exclude_package_data={'myproject': ['bin/*.pyc']},
-      scripts=['myproject/bin/manage.py'])
+      package_data={'tasker': ['bin/*.*', 'static/*.*', 'templates/*.*']},
+      exclude_package_data={'tasker': ['bin/*.pyc']},
+)
 
 
