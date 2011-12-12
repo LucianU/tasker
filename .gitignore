@@ -1,4 +1,5 @@
 *.pyc
 *.pyo
 env
+maint
 tasker/settings/local.py
